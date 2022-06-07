@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="main-fragment(title, mainContent, jsResources)">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:replace="${title}">Title Page</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{/anonymous/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/anonymous/css/style.css}">
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <th:block th:replace="~{anonymous/fragment/header :: header}"></th:block>
+
+    <!-- MODAL LOGIN -->
+    <th:block th:replace="~{anonymous/fragment/header :: modalLogin}"></th:block>
+
+    <!-- BODY -->
+    <th:block th:replace="${mainContent} ?: ~{}"></th:block>
+
+    <!-- Components JS -->
+    <script th:src="@{/anonymous/js/bootstrap.bundle.min.js}"></script>
+    <th:block th:replace="${jsResources} ?: ~{}"></th:block>
+</body>
+
+</html>

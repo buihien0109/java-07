@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="menu" class="main-menu">
+    <div class="accordion" id="accordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-blog">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse-blog" aria-expanded="true"
+                        aria-controls="collapse-blog">
+                    Quản lý bài viết
+                </button>
+            </h2>
+            <div id="collapse-blog" class="accordion-collapse collapse"
+                 aria-labelledby="heading-blog" data-bs-parent="#accordion-blog">
+                <div class="accordion-body">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/admin/blogs}">Danh sách bài viết</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/admin/blogs/create}">Viết bài</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-user">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse-user" aria-expanded="true"
+                        aria-controls="collapse-user">
+                    Quản lý user
+                </button>
+            </h2>
+            <div id="collapse-user" class="accordion-collapse collapse"
+                 aria-labelledby="heading-user" data-bs-parent="#accordion">
+                <div class="accordion-body">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/admin/users}">Danh sách user</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/admin/users/create}">Tạo user</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center pt-3 pb-3">
+                <div class="logo">
+                    <a href="./index.html" class="text-white text-uppercase fs-5">BuiHien Blog</a>
+                </div>
+                <div class="avatar">
+                    <span class="text-white fs-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </span>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li class="nav-item"><a class="nav-link" href="#">Trang quản trị</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Viết bài</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="blog">
+        <div class="container-fluid px-0">
+            <div id="main">
+                <div class="main-menu">
+                    <div class="accordion" id="accordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-blog">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-blog" aria-expanded="true"
+                                    aria-controls="collapse-blog">
+                                    Quản lý bài viết
+                                </button>
+                            </h2>
+                            <div id="collapse-blog" class="accordion-collapse collapse"
+                                aria-labelledby="heading-blog" data-bs-parent="#accordion-blog">
+                                <div class="accordion-body">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item"><a class="nav-link" href="#">Danh sách bài viết</a>
+                                        </li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Viết bài</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-user">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-user" aria-expanded="true"
+                                    aria-controls="collapse-user">
+                                    Quản lý user
+                                </button>
+                            </h2>
+                            <div id="collapse-user" class="accordion-collapse collapse"
+                                aria-labelledby="heading-user" data-bs-parent="#accordion">
+                                <div class="accordion-body">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item"><a class="nav-link" href="#">Danh sách user</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Tạo user</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content">
+
+                    <div class="container-fluid">
+                        <div id="breadcrumb">
+                            <div class="pt-3">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="./index.html">Trang chủ</a></li>
+                                        <li class="breadcrumb-item">Quản lý bài viết</li>
+                                        <li class="breadcrumb-item active">Viết bài</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <div id="action">
+                            <div class="mt-3 mb-3">
+                                <button class="btn btn-success">Lưu bài viết</button>
+                                <button class="btn btn-secondary">Quay lại</button>
+                            </div>
+                        </div>
+
+                        <div id="main">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="mb-3">
+                                        <label class="form-label">Tiêu đề</label>
+                                        <input type="text" class="form-control" id="title" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Nội dung</label>
+                                        <textarea id="content"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Mô tả</label>
+                                        <textarea id="description"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="container">
+                                        <div class="mb-3">
+                                            <label class="form-label">Trạng thái</label>
+                                            <select class="form-select" id="status">
+                                                <option value="1">Công khai</option>
+                                                <option value="2">Nháp</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+    <script src="./js/blog-create.js"></script>
+</body>
+
+</html>

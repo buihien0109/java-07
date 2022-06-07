@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/anonymous/layout/layout :: main-fragment(
+        ~{:: title},
+        ~{:: #main-content},
+        ~{:: #js-resources}
+    )}
+">
+
+<head>
+    <title>Trang chủ</title>
+</head>
+
+<body>
+
+    <th:block id="main-content">
+        <div id="blog">
+            <div class="container">
+                <h2 class="text-center mt-4 mb-4">Bùi Hiên's Blog</h2>
+                <div class="row">
+                    <div th:each="blog : ${blogReturn.blogs}" class="col-lg-4">
+                        <a class="blog-link mb-4 d-block"
+                            th:href="@{/blogs/{id}/{slug}(id=${blog.id}, slug=${blog.slug})}">
+                            <div class="blog-item shadow-sm rounded-3 overflow-hidden">
+                                <div class="image">
+                                    <img th:src="|/anonymous/image/${blog.image}|" th:alt="${blog.title}">
+                                </div>
+                                <div class="content p-3">
+                                    <h4 class="mt-3 mb-3" th:text="${blog.title}"></h4>
+                                    <p class="text-muted">
+                                        <span th:text="${blog.authorName}"></span> |
+                                        <span th:text="${#temporals.format(blog.publishedAt, 'dd-MM-yyyy')}"></span> |
+                                        <span>12 comments</span>
+                                    </p>
+                                    <p th:text="${blog.description}"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <th:block th:if="${blogReturn.totalPage != 1}">
+                    <div class="pagination-container">
+
+                    </div>
+                </th:block>
+
+            </div>
+        </div>
+    </th:block>
+
+
+    <th:block id="js-resources">
+        <script th:inline="javascript">
+            let totalPage = [[${ blogReturn.totalPage }]];
+        </script>
+        <script th:src="@{/anonymous/js/blog-index.js}"></script>
+    </th:block>
+
+</body>
+
+</html>

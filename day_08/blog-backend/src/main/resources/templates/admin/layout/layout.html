@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="main-fragment(
+        title, 
+        cssExternalResources, 
+        cssResources, 
+        mainContent, 
+        jsExternalResources, 
+        jsResources
+    )
+">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:replace="${title}">Trang chủ</title>
+    
+    <link rel="stylesheet" th:href="@{/admin/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <th:block th:replace="${cssExternalResources} ?: ~{}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/admin/css/style.css}">
+
+    <th:block th:replace="${cssResources} ?: ~{}"></th:block>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <th:block th:replace="~{/admin/fragment/header :: header}"></th:block>
+
+    <div id="main-content">
+        <div class="container-fluid px-0">
+            <div id="main-menu">
+                <th:block th:replace="~{/admin/fragment/menu :: menu}"></th:block>
+
+                <th:block th:replace="${mainContent} ?: ~{}"></th:block>
+            </div>
+        </div>
+    </div>
+
+    <script th:src="@{/admin/js/bootstrap.bundle.min.js}"></script>
+
+    <th:block th:replace="${jsExternalResources} ?: ~{}"></th:block>
+
+    <th:block th:replace="${jsResources} ?: ~{}"></th:block>
+
+</body>
+
+</html>
